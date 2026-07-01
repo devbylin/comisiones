@@ -1,0 +1,9 @@
+
+Actúa como un diseñador grafico experto.
+necesito que hagas mi pagina responsive (que se vea perfecta en celulares y Tablet)
+ 
+Reglas importantes :
+Solo utilizar HTML y CSS (no usar librerías externas ) no cambies ni borres ninguno de los id
+ de los componentes los necesitó para mi código
+Buen gusto; Como Diseñador, asegúrate de que los espacios y tamaño de la letra se vean bien en pantallas pequeñas.
+Este es mi código:
