@@ -1,0 +1,13 @@
+Mejora la parte visual
+
+* aspecto empresarial de entidad financiera
+
+* colocar mi logo personal (adjuntado)
+
+* no intervenir en la parte funciones
+
+* solo modificar la parte de CSS Y HTML (adjuntados)
+
+* Que sea responsive tanto para dispositivos móviles y laptops
+
+* solo hacer cambios necesarios, no tocar lo que esta estructurado..
