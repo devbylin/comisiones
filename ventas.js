@@ -10,7 +10,23 @@ function calcularComision(numeroVentas, precioProducto){
     }
     return comision;
 }
+function validarVentas(){
+
+        let numeroVentasStr = recuperarTexto("txtVentas")
+
+        if(numeroVentasStr.length > 5) {
+        alert("MAXIMO 5 CARACTERES")
+        return false;
+    }else{
+        return true;
+    }
+}
 function calcular(){
+
+    if(validarVentas()== false){
+        return;
+    }
+
 
     //convertimos el texto numeros 
 
