@@ -1,5 +1,38 @@
 const VENTAS_BASE = 5;
 
+// ==================== NUEVA FUNCIÓN DE VALIDACIÓN ====================
+function validarInput(id) {
+    const input = document.getElementById(id);
+    const errorDiv = document.getElementById("error" + id.charAt(3).toUpperCase() + id.slice(4));
+    
+    let valor = input.value.trim();
+    let esValido = true;
+    let mensaje = "";
+
+    input.classList.remove("error-input");
+
+    if (valor === "") {
+        mensaje = "Este campo no puede estar vacío";
+        esValido = false;
+    } 
+    else if (isNaN(valor) || valor.includes(" ")) {
+        mensaje = "Solo se permiten números";
+        esValido = false;
+    }
+    else if (id === "txtVentas" && valor.length > 5) {
+        mensaje = "Máximo 5 dígitos permitidos";
+        esValido = false;
+    }
+
+    if (!esValido) {
+        errorDiv.textContent = mensaje;
+        input.classList.add("error-input");
+    } else {
+        errorDiv.textContent = "";
+    }
+
+    return esValido;
+}
 
 function calcularComision(numeroVentas, precioProducto){
     let comision = 0;
@@ -21,28 +54,25 @@ function validarVentas(){
         return true;
     }
 }
-function calcular(){
+// ==================== FUNCIÓN CALCULAR (MODIFICADA) ====================
+function calcular() {
+    const esSueldoValido = validarInput("txtSueldoBase");
+    const esVentasValido = validarInput("txtVentas");
+    const esPrecioValido = validarInput("txtPrecio");
 
-    if(validarVentas()== false){
+    if (!esSueldoValido || !esVentasValido || !esPrecioValido) {
         return;
     }
 
-
-    //convertimos el texto numeros 
-
+    //convertimos el texto a números
     let sueldoBase = recuperarFloat("txtSueldoBase");
     let numeroVentas = recuperarFloat("txtVentas");
     let precioProducto = recuperarFloat("txtPrecio");
 
     let comision = calcularComision(numeroVentas, precioProducto);
-
     let total = comision + sueldoBase;
 
-    let spSueldoBase = document.getElementById("spSueldoBase");
-    let spComision = document.getElementById("spComision");
-    let spTotal = document.getElementById("spTotal");
-
-    spSueldoBase.textContent = sueldoBase;
-    spComision.textContent = comision;
-    spTotal.textContent = total;
+    document.getElementById("spSueldoBase").textContent = sueldoBase.toFixed(2);
+    document.getElementById("spComision").textContent = comision.toFixed(2);
+    document.getElementById("spTotal").textContent = total.toFixed(2);
 }

@@ -1,0 +1,15 @@
+Quiero validar inputs en JavaScript.
+1) Reglas:
+·         Mostrar mensaje debajo de cada input (no usar alert)
+·         El mensaje debe ser de color rojo y en cursiva
+2)Validaciones:
+·         Solo números
+·         No puede estar vacío
+3)Condiciones técnicas:
+·         Usar los mismos ID existentes (txtVentas, txtPrecio, txtSueldoBase)
+4)Usar eventos:
+·         onblur para validar cuando el usuario sale del input
+·         No modificar IDs existentes
+·         Mostrar errores en un elemento debajo del input
+Devuélveme solo las partes que debo agregar o modificar (HTML, CSS y JS),
+No todo el código.
