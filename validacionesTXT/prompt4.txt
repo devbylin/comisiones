@@ -1,0 +1,11 @@
+En nuestro formulario agregar las siguientes especificaciones:
+
+* tipo de datos
+
+* montos máximos
+
+* montos mínimos
+
+* no olvidar que sea responsive
+
+* no me des código completo, solo lo que hay que agregar..

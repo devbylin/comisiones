@@ -30,6 +30,31 @@
         <input type="text" id="txtPrecio" onblur="validarInput('txtPrecio')">
         <div id="errorPrecio" class="error"></div>
 
+
+        <!-- NUEVO: Tipo de Datos / Categoría -->
+        <label>Tipo de Venta:</label>
+        <select id="tipoVenta" class="form-select">
+            <option value="">Seleccione tipo de venta</option>
+            <option value="normal">Venta Normal</option>
+            <option value="premium">Venta Premium</option>
+            <option value="corporativa">Venta Corporativa</option>
+            <option value="recurrente">Cliente Recurrente</option>
+        </select>
+
+        <!-- NUEVO: Tipo de Datos / Categoría -->
+
+        <!-- NUEVO: Montos Mínimo y Máximo -->
+        <div class="montos-row">
+            <div>
+                <label>Meta Mínima</label>
+                <input type="text" id="metaMin" value="$5,000" readonly>
+            </div>
+            <div>
+                <label>Meta Máxima</label>
+                <input type="text" id="metaMax" value="$50,000" readonly>
+            </div>
+        </div>
+
         <button onclick="calcular()">Calcular Comisión</button>
 
         <h2>Resultados</h2>

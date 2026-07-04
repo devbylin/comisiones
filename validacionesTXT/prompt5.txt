@@ -1,0 +1,12 @@
+Agreguemos funcionalidades a la parte de tipo de venta es decir:
+
+* venta normal (queda como esta)
+
+* venta premium un 5% adicional de comisión
+
+* venta corporativa un 7% adicional de comisión
+
+* cliente recurrente un 9% adicional de comisión
+
+* Es decir que cambie el porcentaje de comisión por cada tipo de venta
+  que se calcule de acuerdo a las especificaciones..

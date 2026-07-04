@@ -56,23 +56,37 @@ function validarVentas(){
 }
 // ==================== FUNCIÓN CALCULAR (MODIFICADA) ====================
 function calcular() {
-    const esSueldoValido = validarInput("txtSueldoBase");
-    const esVentasValido = validarInput("txtVentas");
-    const esPrecioValido = validarInput("txtPrecio");
+    let sueldoBase = parseFloat(document.getElementById('txtSueldoBase').value) || 0;
+    let numVentas = parseFloat(document.getElementById('txtVentas').value) || 0;
+    let precioProducto = parseFloat(document.getElementById('txtPrecio').value) || 0;
+    let tipoVenta = document.getElementById('tipoVenta').value;
 
-    if (!esSueldoValido || !esVentasValido || !esPrecioValido) {
-        return;
+    let comisionBase = 0.08; // 8% base
+    let bonificacion = 0;
+
+    // Aplicar bonificación según tipo de venta
+    switch(tipoVenta) {
+        case 'premium':
+            bonificacion = 0.05;
+            break;
+        case 'corporativa':
+            bonificacion = 0.07;
+            break;
+        case 'recurrente':
+            bonificacion = 0.09;
+            break;
+        default:
+            bonificacion = 0;
     }
 
-    //convertimos el texto a números
-    let sueldoBase = recuperarFloat("txtSueldoBase");
-    let numeroVentas = recuperarFloat("txtVentas");
-    let precioProducto = recuperarFloat("txtPrecio");
+    let tasaFinal = comisionBase + bonificacion;
+    let totalVentas = numVentas * precioProducto;
+    let comision = totalVentas * tasaFinal;
+    let total = sueldoBase + comision;
 
-    let comision = calcularComision(numeroVentas, precioProducto);
-    let total = comision + sueldoBase;
-
-    document.getElementById("spSueldoBase").textContent = sueldoBase.toFixed(2);
-    document.getElementById("spComision").textContent = comision.toFixed(2);
-    document.getElementById("spTotal").textContent = total.toFixed(2);
+    // Mostrar resultados
+    document.getElementById('spSueldoBase').textContent = '$' + sueldoBase.toLocaleString('es-ES');
+    document.getElementById('spComision').innerHTML = '$' + comision.toLocaleString('es-ES') + 
+        ` <small>(${ (tasaFinal*100).toFixed(1)}%)</small>`;
+    document.getElementById('spTotal').textContent = '$' + total.toLocaleString('es-ES');
 }
